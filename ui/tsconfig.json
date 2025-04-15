@@ -25,7 +25,7 @@
       "@drift-labs/sdk": ["../drift-common/protocol/sdk"],
       "@drift/common": ["../drift-common/common-ts/lib"],
       "@drift-labs/react": ["../drift-common/react/lib"],
-      "@drift-labs/icons": ["../drift-common/icons"],
+      "@drift-labs/icons": ["../drift-common/icons/dist"],
       "@drift-labs/vaults-sdk": ["../drift-vaults/ts/sdk"],
       "react": ["./node_modules/@types/react"],
       "BN": ["./drift-common/protocol/sdk/node_modules/@types/bn.js"]

@@ -6,47 +6,48 @@ start_time=$(date +%s)
 # Source the utility script
 source ./scripts/utils.sh
 
-function print_exec_command() {
-    local command=$1
-    
-    print_message "build-vercel.sh" "${command}"
-    ${command}
-}
-
 # Function to perform build tasks
-bun_build() {
+build() {
     local folder=$1
-    local additional_cmd=$2
-    local build_cmd=${3:-"bun run build"}  # Default to "bun run build" if not specified
+    local build_cmd=${2:-"build"} # build cmd defaults to "build" if nothing provided
+    local additional_cmd=$3
 
     cd ${folder}
-    print_message "build-vercel.sh" "Building ${folder}..."
+    
+    echo "Current directory: $(pwd)"
+    print_message "build-vercel.sh" "Building :: folder:${folder}, build_cmd:${build_cmd}, additional_cmd:${additional_cmd}"
     
     if [ -n "${additional_cmd}" ]; then
         ${additional_cmd}
     fi
 
-    ${build_cmd}
-
-    cd - &> /dev/null
+    bun run ${build_cmd}
 }
 
 print_message "Node version:"
 node -v
 
-print_exec_command "cd .." # in root dir
+# Build tasks
+base_directory=$(pwd) # EXPECT THIS TO BE THE UI FOLDER
 
-# Build tasks (using default build command)
-bun_build "drift-common/protocol/sdk" "bun add @project-serum/borsh" "bun run build:browser"
-bun_build "drift-common/common-ts" "" "bun add @solana/spl-token"
-bun_build "drift-common/icons" "" "bun run build:rollup"
-bun_build "drift-common/react" "" ""
-bun_build "drift-vaults/ts/sdk" "" ""
+build "../drift-common/protocol/sdk" "build:browser" "bun add @project-serum/borsh"
+cd ${base_directory}
 
-print_exec_command "cd ui" # in ui dir
+build "../drift-common/common-ts" "" "bun add @solana/spl-token"
+cd ${base_directory}
 
-# Build UI
-bun_build "."
+build "../drift-common/icons"  "" ""
+cd ${base_directory}
+
+build "../drift-common/react"  "" ""
+cd ${base_directory}
+
+build "../drift-vaults/ts/sdk" "" "bun add @drift-labs/sdk"
+cd ${base_directory}
+
+build "." "build" ""
+cd ${base_directory}
+
 
 # Get the end time
 end_time=$(date +%s)
@@ -55,4 +56,4 @@ end_time=$(date +%s)
 execution_time=$(expr $end_time - $start_time)
 print_message "build-vercel.sh" "Execution time: ${execution_time} seconds"
 
-print_message "build-vercel.sh" "Build completed."
+print_message "Build completed."

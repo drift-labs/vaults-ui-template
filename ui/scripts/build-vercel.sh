@@ -38,7 +38,7 @@ print_exec_command "cd .." # in root dir
 
 # Build tasks (using default build command)
 bun_build "drift-common/protocol/sdk" "bun add @project-serum/borsh" "bun run build:browser"
-bun_build "drift-common/common-ts" "" ""
+bun_build "drift-common/common-ts" "" "bun add @solana/spl-token"
 bun_build "drift-common/icons" "" "bun run build:rollup"
 bun_build "drift-common/react" "" ""
 bun_build "drift-vaults/ts/sdk" "" ""

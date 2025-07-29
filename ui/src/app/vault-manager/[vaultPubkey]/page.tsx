@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
 import { useCommonDriftStore } from "@drift-labs/react";
 import { createVaultSnapshot } from "@/server-actions/vaults";
+import { TransactionInstruction } from "@solana/web3.js";
 
 type FetchVaultFn = () => Promise<void>;
 
@@ -28,7 +29,7 @@ const VaultInfoRow = ({
   labelClassName?: string;
 }) => {
   return (
-    <div className="flex justify-between gap-1 pt-1">
+    <div className="flex gap-1 justify-between pt-1">
       <span
         className={twMerge(
           "text-sm text-gray-500++ max-w-[300px]",
@@ -61,7 +62,7 @@ const VaultOnChainInformation = ({ vault }: { vault: Vault }) => {
       <SectionHeader>Vault On-Chain Account Information</SectionHeader>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="flex flex-col w-full gap-1 divide-y divide-gray-200">
+        <div className="flex flex-col gap-1 w-full divide-y divide-gray-200">
           <VaultInfoRow label="Name" value={decodeName(vault.name)} />
           <VaultInfoRow label="Pubkey" value={vault.pubkey.toBase58()} />
           <VaultInfoRow label="Manager" value={vault.manager.toBase58()} />
@@ -335,7 +336,7 @@ const ManagerWithdraw = ({
         );
       case WithdrawalState.RequestedAndPending:
         return (
-          <div className="flex items-center gap-4">
+          <div className="flex gap-4 items-center">
             <span>
               {`Shares Requested: ${lastManagerWithdrawRequest.shares.toString()} | Max Value: ${tokenValueDisplay(
                 lastManagerWithdrawRequest.value,
@@ -351,7 +352,7 @@ const ManagerWithdraw = ({
         );
       case WithdrawalState.Available:
         return (
-          <div className="flex items-center gap-4">
+          <div className="flex gap-4 items-center">
             <span>
               {`Shares Requested: ${lastManagerWithdrawRequest.shares.toString()} | Max Value: ${tokenValueDisplay(
                 lastManagerWithdrawRequest.value,
@@ -367,6 +368,76 @@ const ManagerWithdraw = ({
     <div className="flex flex-col gap-3">
       <SubSectionHeader>Manager Withdraw</SubSectionHeader>
       {renderWithdrawalState()}
+    </div>
+  );
+};
+
+const ManagerApplyProfitShare = ({ vault }: { vault: Vault }) => {
+  const vaultClient = useAppStore((s) => s.vaultClient);
+
+  const handleApplyProfitShare = async () => {
+    if (!vaultClient) {
+      return;
+    }
+
+    try {
+      // Get all vault depositors for this vault
+      const allVaultDepositors = await vaultClient.getAllVaultDepositors(
+        vault.pubkey,
+      );
+
+      if (allVaultDepositors.length === 0) {
+        toast("No vault depositors found");
+        return;
+      }
+
+      // Create chunks of 5 depositors per transaction
+      const CHUNK_SIZE = 5;
+      const chunks = [];
+      for (let i = 0; i < allVaultDepositors.length; i += CHUNK_SIZE) {
+        chunks.push(allVaultDepositors.slice(i, i + CHUNK_SIZE));
+      }
+
+      toast(
+        `Applying profit share to ${allVaultDepositors.length} depositors in ${chunks.length} transactions...`,
+      );
+
+      // Process each chunk
+      for (let i = 0; i < chunks.length; i++) {
+        const chunk = chunks[i];
+        const instructions: TransactionInstruction[] = [];
+
+        // Create applyProfitShare instructions for each depositor in the chunk
+        for (const depositor of chunk) {
+          const instruction = await vaultClient.getApplyProfitShareIx(
+            vault.pubkey,
+            depositor.publicKey,
+          );
+          instructions.push(instruction);
+        }
+
+        // Send the transaction with the chunk of instructions
+        await vaultClient.createAndSendTxn(instructions);
+
+        // Small delay between transactions to avoid rate limiting
+        if (i < chunks.length - 1) {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        }
+      }
+
+      toast.success(
+        `Successfully applied profit share to ${allVaultDepositors.length} depositors`,
+      );
+    } catch (e) {
+      toast.error("Failed to apply profit share");
+      console.error(e);
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-3">
+      <SubSectionHeader>Apply Profit Share</SubSectionHeader>
+      <Button onClick={handleApplyProfitShare}>Apply Profit Share</Button>
     </div>
   );
 };
@@ -412,7 +483,7 @@ const UpdateMarginTrading = ({
   return (
     <div className="flex flex-col gap-3">
       <SubSectionHeader>Update Margin Trading</SubSectionHeader>
-      <div className="flex items-center w-full gap-4">
+      <div className="flex gap-4 items-center w-full">
         <span>Margin Trading</span>
         <Switch
           checked={stagedIsMarginTradingEnabled}
@@ -632,6 +703,7 @@ export default function VaultManagerVaultPage(props: {
       <SectionHeader>Manager Actions</SectionHeader>
       <ManagerDeposit vault={vault} fetchVault={fetchVault} />
       <ManagerWithdraw vault={vault} fetchVault={fetchVault} />
+      <ManagerApplyProfitShare vault={vault} />
 
       <div className="w-full h-[1px] bg-gray-500 my-4" />
 

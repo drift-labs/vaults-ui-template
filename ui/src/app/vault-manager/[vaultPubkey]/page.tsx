@@ -16,8 +16,59 @@ import { twMerge } from "tailwind-merge";
 import { useCommonDriftStore } from "@drift-labs/react";
 import { createVaultSnapshot } from "@/server-actions/vaults";
 import { TransactionInstruction } from "@solana/web3.js";
+import { useQuery } from "@tanstack/react-query";
 
 type FetchVaultFn = () => Promise<void>;
+
+type VaultDepositorData = {
+  publicKey: PublicKey;
+  lastWithdrawRequestValue: BN;
+  depositor: any;
+};
+
+const useVaultDepositors = (vault: Vault | null) => {
+  const vaultClient = useAppStore((s) => s.vaultClient);
+
+  const {
+    data: depositors = [],
+    isLoading: isLoadingDepositors,
+    error,
+  } = useQuery<VaultDepositorData[]>({
+    queryKey: ["vault-depositors", vault?.pubkey.toBase58()],
+    queryFn: async () => {
+      if (!vaultClient || !vault) return [];
+
+      const allVaultDepositors = await vaultClient.getAllVaultDepositors(
+        vault.pubkey,
+      );
+
+      return allVaultDepositors.map((depositor) => {
+        try {
+          return {
+            publicKey: depositor.publicKey,
+            lastWithdrawRequestValue:
+              depositor.account?.lastWithdrawRequest.value || new BN(0),
+            depositor: depositor.account,
+          };
+        } catch (e) {
+          return {
+            publicKey: depositor.publicKey,
+            lastWithdrawRequestValue: new BN(0),
+            depositor: null,
+          };
+        }
+      });
+    },
+    enabled: !!vaultClient && !!vault,
+    staleTime: 30000, // Consider data fresh for 30 seconds
+  });
+
+  return {
+    depositors,
+    isLoadingDepositors,
+    error,
+  };
+};
 
 const VaultInfoRow = ({
   label,
@@ -372,25 +423,30 @@ const ManagerWithdraw = ({
   );
 };
 
-const ManagerApplyProfitShare = ({ vault }: { vault: Vault }) => {
+const ManagerApplyProfitShare = ({
+  vault,
+  allVaultDepositors,
+  isLoadingDepositors,
+}: {
+  vault: Vault;
+  allVaultDepositors: VaultDepositorData[];
+  isLoadingDepositors: boolean;
+}) => {
   const vaultClient = useAppStore((s) => s.vaultClient);
+  const [loading, setLoading] = useState(false);
 
   const handleApplyProfitShare = async () => {
     if (!vaultClient) {
       return;
     }
 
+    if (allVaultDepositors.length === 0) {
+      toast("No vault depositors found");
+      return;
+    }
+
+    setLoading(true);
     try {
-      // Get all vault depositors for this vault
-      const allVaultDepositors = await vaultClient.getAllVaultDepositors(
-        vault.pubkey,
-      );
-
-      if (allVaultDepositors.length === 0) {
-        toast("No vault depositors found");
-        return;
-      }
-
       // Create chunks of 5 depositors per transaction
       const CHUNK_SIZE = 5;
       const chunks = [];
@@ -431,13 +487,192 @@ const ManagerApplyProfitShare = ({ vault }: { vault: Vault }) => {
     } catch (e) {
       toast.error("Failed to apply profit share");
       console.error(e);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="flex flex-col gap-3">
       <SubSectionHeader>Apply Profit Share</SubSectionHeader>
-      <Button onClick={handleApplyProfitShare}>Apply Profit Share</Button>
+      <Button
+        onClick={handleApplyProfitShare}
+        disabled={
+          isLoadingDepositors || loading || allVaultDepositors.length === 0
+        }
+      >
+        {loading ? "Applying..." : "Apply Profit Share to All"}
+      </Button>
+    </div>
+  );
+};
+
+const ManualApplyProfitShare = ({
+  vault,
+  allVaultDepositors,
+  isLoadingDepositors,
+}: {
+  vault: Vault;
+  allVaultDepositors: VaultDepositorData[];
+  isLoadingDepositors: boolean;
+}) => {
+  const vaultClient = useAppStore((s) => s.vaultClient);
+  const spotMarketConfig = SPOT_MARKETS_LOOKUP[vault.spotMarketIndex];
+  const [selectedDepositors, setSelectedDepositors] = useState<Set<string>>(
+    new Set(),
+  );
+  const [loading, setLoading] = useState(false);
+
+  const tokenValueDisplay = tokenValueDisplayCurried(
+    spotMarketConfig.precisionExp,
+    spotMarketConfig.symbol,
+  );
+
+  const handleSelectAll = () => {
+    if (selectedDepositors.size === allVaultDepositors.length) {
+      setSelectedDepositors(new Set());
+    } else {
+      setSelectedDepositors(
+        new Set(allVaultDepositors.map((d) => d.publicKey.toBase58())),
+      );
+    }
+  };
+
+  const handleSelectDepositor = (publicKey: string) => {
+    const newSelected = new Set(selectedDepositors);
+    if (newSelected.has(publicKey)) {
+      newSelected.delete(publicKey);
+    } else {
+      newSelected.add(publicKey);
+    }
+    setSelectedDepositors(newSelected);
+  };
+
+  const handleApplyProfitShareToSelected = async () => {
+    if (!vaultClient || selectedDepositors.size === 0) {
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const selectedPublicKeys = Array.from(selectedDepositors).map(
+        (pk) => new PublicKey(pk),
+      );
+
+      // Create chunks of 5 depositors per transaction
+      const CHUNK_SIZE = 5;
+      const chunks = [];
+      for (let i = 0; i < selectedPublicKeys.length; i += CHUNK_SIZE) {
+        chunks.push(selectedPublicKeys.slice(i, i + CHUNK_SIZE));
+      }
+
+      toast(
+        `Applying profit share to ${selectedPublicKeys.length} selected depositors in ${chunks.length} transactions...`,
+      );
+
+      // Process each chunk
+      for (let i = 0; i < chunks.length; i++) {
+        const chunk = chunks[i];
+        const instructions: TransactionInstruction[] = [];
+
+        // Create applyProfitShare instructions for each depositor in the chunk
+        for (const depositorPubkey of chunk) {
+          const instruction = await vaultClient.getApplyProfitShareIx(
+            vault.pubkey,
+            depositorPubkey,
+          );
+          instructions.push(instruction);
+        }
+
+        // Send the transaction with the chunk of instructions
+        await vaultClient.createAndSendTxn(instructions);
+
+        // Small delay between transactions to avoid rate limiting
+        if (i < chunks.length - 1) {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        }
+      }
+
+      toast.success(
+        `Successfully applied profit share to ${selectedPublicKeys.length} selected depositors`,
+      );
+      setSelectedDepositors(new Set());
+    } catch (e) {
+      toast.error("Failed to apply profit share to selected depositors");
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-3">
+      <SubSectionHeader>Manual Apply Profit Share</SubSectionHeader>
+
+      {isLoadingDepositors ? (
+        <div className="py-4 text-center">Loading depositors...</div>
+      ) : (
+        <>
+          <div className="flex justify-between items-center">
+            <span className="text-sm text-gray-600">
+              {allVaultDepositors.length} depositors found
+            </span>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm" onClick={handleSelectAll}>
+                {selectedDepositors.size === allVaultDepositors.length
+                  ? "Deselect All"
+                  : "Select All"}
+              </Button>
+              <Button
+                onClick={handleApplyProfitShareToSelected}
+                disabled={selectedDepositors.size === 0 || loading}
+                size="sm"
+              >
+                {loading
+                  ? "Applying..."
+                  : `Apply to Selected (${selectedDepositors.size})`}
+              </Button>
+            </div>
+          </div>
+
+          <div className="overflow-y-auto max-h-96 rounded-lg border">
+            {allVaultDepositors.length === 0 ? (
+              <div className="p-4 text-center text-gray-500">
+                No depositors found
+              </div>
+            ) : (
+              <div className="divide-y">
+                {allVaultDepositors.map((depositor) => (
+                  <div
+                    key={depositor.publicKey.toBase58()}
+                    className="flex items-center p-3 hover:bg-gray-50"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedDepositors.has(
+                        depositor.publicKey.toBase58(),
+                      )}
+                      onChange={() =>
+                        handleSelectDepositor(depositor.publicKey.toBase58())
+                      }
+                      className="mr-3"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-medium text-gray-900 truncate">
+                        {depositor.publicKey.toBase58()}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Last Withdraw Request:{" "}
+                        {tokenValueDisplay(depositor.lastWithdrawRequestValue)}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -668,6 +903,9 @@ export default function VaultManagerVaultPage(props: {
   );
   const vaultClient = useAppStore((s) => s.vaultClient);
 
+  // Use the custom hook to fetch depositors
+  const { depositors, isLoadingDepositors } = useVaultDepositors(vault);
+
   const fetchVault = useCallback(async () => {
     if (vaultClient && params.vaultPubkey) {
       const vault = await vaultClient.getVault(
@@ -703,7 +941,16 @@ export default function VaultManagerVaultPage(props: {
       <SectionHeader>Manager Actions</SectionHeader>
       <ManagerDeposit vault={vault} fetchVault={fetchVault} />
       <ManagerWithdraw vault={vault} fetchVault={fetchVault} />
-      <ManagerApplyProfitShare vault={vault} />
+      <ManagerApplyProfitShare
+        vault={vault}
+        allVaultDepositors={depositors}
+        isLoadingDepositors={isLoadingDepositors}
+      />
+      <ManualApplyProfitShare
+        vault={vault}
+        allVaultDepositors={depositors}
+        isLoadingDepositors={isLoadingDepositors}
+      />
 
       <div className="w-full h-[1px] bg-gray-500 my-4" />
 

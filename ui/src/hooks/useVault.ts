@@ -16,6 +16,8 @@ import { MarketId } from "@drift/common";
 import { MarketType } from "@drift-labs/sdk";
 import { getUiVaultConfig } from "@/lib/utils";
 
+const DEFAULT_APY_RETURN_STAT = {};
+
 export const useVault = (vaultPubkey: string) => {
   const uiVaultConfig = getUiVaultConfig(vaultPubkey);
 
@@ -41,18 +43,12 @@ export const useVault = (vaultPubkey: string) => {
     useSubscribedVaultDepositor(vaultPubkey);
 
   const syncVaultStats = useCallback(async () => {
-    if (
-      vaultPubkey &&
-      driftClientIsReady &&
-      driftClient &&
-      vaultClient &&
-      apyReturnsLookup[vaultPubkey]
-    ) {
+    if (vaultPubkey && driftClientIsReady && driftClient && vaultClient) {
       const vaultStats = await getSingleVaultStats(
         driftClient,
         vaultClient,
         new PublicKey(vaultPubkey),
-        apyReturnsLookup[vaultPubkey],
+        apyReturnsLookup[vaultPubkey] ?? DEFAULT_APY_RETURN_STAT,
         memoizedOraclePriceGetter,
       );
       setAppStore((s) => {

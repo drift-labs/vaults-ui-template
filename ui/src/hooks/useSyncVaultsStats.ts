@@ -10,6 +10,7 @@ import {
   BigNum,
   BN,
   DriftClient,
+  getUserAccountPublicKey,
   getUserStatsAccountPublicKey,
   PRICE_PRECISION_EXP,
   PublicKey,
@@ -174,11 +175,15 @@ export function constructVaultStats(
 ): VaultStats {
   const uiVaultConfig = getUiVaultConfig(vaultPubKey);
 
-  if (!uiVaultConfig) {
-    throw new Error("Vault config not found");
+  let vaultMarketIndex: number;
+
+  if (uiVaultConfig) {
+    vaultMarketIndex = uiVaultConfig.market.marketIndex;
+  } else {
+    vaultMarketIndex = 0;
   }
 
-  const uiMarket = UIMarket.createSpotMarket(uiVaultConfig.market.marketIndex);
+  const uiMarket = UIMarket.createSpotMarket(vaultMarketIndex);
   const marketConfig = uiMarket.market as SpotMarketConfig;
   const oraclePriceBigNum = BigNum.from(
     oraclePriceGetter(uiMarket.marketId)?.rawPriceData.price ?? ZERO,
@@ -277,8 +282,16 @@ export const getSingleVaultStats = async (
 ): Promise<VaultStats> => {
   const uiVaultConfig = getUiVaultConfig(vaultPubkey.toString());
 
-  if (!uiVaultConfig) {
-    throw new Error("Vault config not found");
+  let vaultUserPubkey: PublicKey;
+
+  if (uiVaultConfig) {
+    vaultUserPubkey = new PublicKey(uiVaultConfig.userPubKeyString);
+  } else {
+    vaultUserPubkey = await getUserAccountPublicKey(
+      driftClient.program.programId,
+      vaultPubkey,
+      0,
+    );
   }
 
   const [vaultAccountData, vaultQuoteTvlBN, userStats, vaultDriftUserAccount] =
@@ -288,10 +301,7 @@ export const getSingleVaultStats = async (
         address: vaultPubkey,
       }),
       fetchUserStats(driftClient, vaultPubkey),
-      fetchDriftUserAccount(
-        driftClient,
-        new PublicKey(uiVaultConfig.userPubKeyString),
-      ),
+      fetchDriftUserAccount(driftClient, vaultUserPubkey),
     ]);
 
   const vaultStats = constructVaultStats(

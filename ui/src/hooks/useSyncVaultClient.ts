@@ -16,7 +16,7 @@ export const useSyncVaultClient = () => {
     if (driftClientIsReady && driftClient && connection) {
       const vaultProgram = getDriftVaultProgram(
         connection,
-        COMMON_UI_UTILS.createThrowawayIWallet(),
+        COMMON_UI_UTILS.createPlaceholderIWallet(),
       );
       const vaultClient = new VaultClient({
         driftClient,

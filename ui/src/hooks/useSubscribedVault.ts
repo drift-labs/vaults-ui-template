@@ -41,7 +41,7 @@ export const useSubscribedVault = (
     bulkAccountLoader: BulkAccountLoader,
     vaultPubkey: string,
   ) {
-    const newWallet = COMMON_UI_UTILS.createThrowawayIWallet();
+    const newWallet = COMMON_UI_UTILS.createPlaceholderIWallet();
     const driftVaultsProgram = getDriftVaultProgram(connection, newWallet);
 
     const vaultAccount = new VaultAccount(

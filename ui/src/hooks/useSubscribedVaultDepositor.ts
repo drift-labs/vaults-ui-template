@@ -59,7 +59,7 @@ export const useSubscribedVaultDepositor = (
       authority,
     );
     const newWallet =
-      COMMON_UI_UTILS.createThrowawayIWallet(vaultDepositorPubkey);
+      COMMON_UI_UTILS.createPlaceholderIWallet(vaultDepositorPubkey);
     const driftVaultsProgram = getDriftVaultProgram(connection, newWallet);
 
     const vaultDepositorAccount = new VaultDepositorAccount(

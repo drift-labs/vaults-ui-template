@@ -39,6 +39,8 @@ export const TopBar = () => {
         <NavLink href={PAGES.vaultManagerHome}>Vault Manager</NavLink>
 
         <NavLink href="/vaults">Vaults</NavLink>
+        
+        <NavLink href="/vault-input">Vault Input</NavLink>
       </div>
 
       <ConnectButton />

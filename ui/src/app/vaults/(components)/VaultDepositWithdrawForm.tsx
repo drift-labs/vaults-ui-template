@@ -32,7 +32,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 type VaultDepositWithdrawFormProps = {
-  uiVaultConfig: UiVaultConfig;
+  uiVaultConfig: Pick<UiVaultConfig, "vaultPubkeyString" | "market">;
   vaultDepositorAccountData: VaultDepositor | undefined;
   isVaultDepositorLoaded: boolean;
   vaultAccountData: Vault | undefined;
@@ -361,7 +361,7 @@ export const VaultDepositWithdrawForm = (
 
   return (
     <div className="flex flex-col w-full p-4 rounded-[3px] bg-container-bg grow sm:grow-0 max-w-[400px] border ">
-      <div className="flex items-center gap-1">
+      <div className="flex gap-1 items-center">
         <Button
           onClick={() => setFormType("deposit")}
           className={twMerge(
@@ -405,7 +405,7 @@ export const VaultDepositWithdrawForm = (
         {(isDeposit || withdrawalCtaState.displayInput) && (
           <div className="flex flex-col gap-2">
             <div
-              className="flex items-center justify-between w-full"
+              className="flex justify-between items-center w-full"
               onClick={() => {
                 handleOnValueChange(maxAmount.toNum().toString());
               }}
@@ -413,9 +413,9 @@ export const VaultDepositWithdrawForm = (
               <Typo.T5 className="text-text-label">Amount</Typo.T5>
 
               {isWalletConnected && (
-                <div className="flex items-center gap-1 bg-gray-200 rounded-sm">
+                <div className="flex gap-1 items-center bg-gray-200 rounded-sm">
                   {/* The maximum amount is after fees, while the final amount received may differ from the amount requested. */}
-                  <Typo.T5 className="flex items-center gap-1 px-1 rounded-sm cursor-pointer bg-button-secondary-bg text-text-secondary">
+                  <Typo.T5 className="flex gap-1 items-center px-1 rounded-sm cursor-pointer bg-button-secondary-bg text-text-secondary">
                     <span>Max:</span>
                     <span>
                       {maxAmount.prettyPrint()} {depositAssetConfig.symbol}
@@ -425,10 +425,10 @@ export const VaultDepositWithdrawForm = (
               )}
             </div>
 
-            <div className="flex items-center w-full gap-2 bg-input-bg">
+            <div className="flex gap-2 items-center w-full bg-input-bg">
               {/** Collateral Selector */}
-              <div className="flex items-center w-full gap-2 ">
-                <div className="flex items-center gap-1 shrink-0">
+              <div className="flex gap-2 items-center w-full">
+                <div className="flex gap-1 items-center shrink-0">
                   <MarketIcon
                     marketSymbol={depositAssetConfig.symbol}
                     className="w-4 h-4"
@@ -449,11 +449,11 @@ export const VaultDepositWithdrawForm = (
         )}
 
         <div className="flex flex-col gap-4 mt-1">
-          <div className="flex items-center gap-1">
-            <div className="flex items-center justify-between w-full gap-1">
+          <div className="flex gap-1 items-center">
+            <div className="flex gap-1 justify-between items-center w-full">
               <span>Balance</span>
 
-              <div className="flex items-center gap-1">
+              <div className="flex gap-1 items-center">
                 <MarketIcon
                   marketSymbol={depositAssetConfig.symbol}
                   className="w-4 h-4"
@@ -490,7 +490,7 @@ export const VaultDepositWithdrawForm = (
           {isDeposit ? "Confirm Deposit" : withdrawalCtaState.text}
         </Button>
       ) : (
-        <div className="flex items-center justify-center w-full">
+        <div className="flex justify-center items-center w-full">
           Connect Wallet
         </div>
       )}

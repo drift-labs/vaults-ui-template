@@ -30,7 +30,7 @@ export const setupClients = (authority?: PublicKey) => {
   }
 
   const connection = new Connection(rpcUrl, "finalized");
-  const dummyWallet = COMMON_UI_UTILS.createThrowawayIWallet(authority);
+  const dummyWallet = COMMON_UI_UTILS.createPlaceholderIWallet(authority);
 
   const accountLoader = new BulkAccountLoader(connection, "finalized", 0); // we don't want to poll for updates
 

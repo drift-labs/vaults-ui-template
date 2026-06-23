@@ -68,15 +68,15 @@ bun_install_and_link "./drift-common/protocol" "" ""
 bun_install_and_link "./drift-common/protocol/sdk" "" "true"
 
 # Install common-ts, icons, react
-bun_install_and_link "./drift-common/common-ts" "@drift-labs/sdk" "true"
+bun_install_and_link "./drift-common/common-ts" "@velocity-exchange/sdk" "true"
 bun_install_and_link "./drift-common/icons" "" "true"
-bun_install_and_link "./drift-common/react" "@drift-labs/sdk @drift/common @drift-labs/icons" "true"
+bun_install_and_link "./drift-common/react" "@velocity-exchange/sdk @drift/common @velocity-exchange/icons" "true"
 
 # Install vaults-sdk
 bun_install_and_link "./drift-vaults/ts/sdk" "" "true"
 
 # Install ui
-bun_install_and_link "./ui" "@drift/common @drift-labs/sdk @drift-labs/icons @drift-labs/react" ""
+bun_install_and_link "./ui" "@drift/common @velocity-exchange/sdk @velocity-exchange/icons @velocity-exchange/react" ""
 
 # Get the end time
 end_time=$(date +%s)

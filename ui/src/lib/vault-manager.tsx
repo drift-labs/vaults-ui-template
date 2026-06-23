@@ -1,5 +1,5 @@
 import { SOLANA_EXPLORER_URL } from "@/constants/misc";
-import { VaultClient, VaultParams } from "@drift-labs/vaults-sdk";
+import { VaultClient, VaultParams } from "@velocity-exchange/vaults-sdk";
 import { PublicKey } from "@solana/web3.js";
 import toast from "react-hot-toast";
 

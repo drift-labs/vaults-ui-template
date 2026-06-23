@@ -2,13 +2,13 @@ import {
   Vault,
   VAULT_SHARES_PRECISION_EXP,
   VaultDepositor,
-} from "@drift-labs/vaults-sdk";
+} from "@velocity-exchange/vaults-sdk";
 import {
   BigNum,
   BN,
   PERCENTAGE_PRECISION,
   QUOTE_PRECISION_EXP,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { SerializedVaultDepositorRecord } from "@/db/schema";
 import invariant from "tiny-invariant";
 import dayjs from "dayjs";

@@ -9,8 +9,8 @@ import {
 } from "./VaultParamsFormFields";
 import { createVault } from "@/lib/vault-manager";
 import useAppStore from "@/stores/app/useAppStore";
-import { encodeName } from "@drift-labs/vaults-sdk";
-import { BN, PERCENTAGE_PRECISION } from "@drift-labs/sdk";
+import { encodeName } from "@velocity-exchange/vaults-sdk";
+import { BN, PERCENTAGE_PRECISION } from "@velocity-exchange/sdk";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
 
 export const CreateVaultForm = () => {

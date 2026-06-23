@@ -1,4 +1,4 @@
-import { Typo } from "@drift-labs/react";
+import { Typo } from "@velocity-exchange/react";
 import { MarketIcon } from "@/components/MarketIcon";
 
 export const PerformanceBreakdownStat = (props: {

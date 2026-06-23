@@ -1,11 +1,11 @@
 "use client";
 
 import { use, useCallback, useEffect, useState } from "react";
-import { decodeName, Vault, WithdrawUnit } from "@drift-labs/vaults-sdk";
+import { decodeName, Vault, WithdrawUnit } from "@velocity-exchange/vaults-sdk";
 import useAppStore from "@/stores/app/useAppStore";
 import { PublicKey } from "@solana/web3.js";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
-import { BigNum, BN, PERCENTAGE_PRECISION, UserAccount } from "@drift-labs/sdk";
+import { BigNum, BN, PERCENTAGE_PRECISION, UserAccount } from "@velocity-exchange/sdk";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import { UpdateVaultForm } from "../(components)/UpdateVaultForm";
 import dayjs from "dayjs";
 import toast from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
-import { useCommonDriftStore } from "@drift-labs/react";
+import { useCommonDriftStore } from "@velocity-exchange/react";
 import { createVaultSnapshot } from "@/server-actions/vaults";
 import { TransactionInstruction } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";

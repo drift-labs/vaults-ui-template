@@ -3,9 +3,9 @@
 import { PAGES } from "@/constants/pages";
 import { fetchAllVaultsOfManager } from "@/lib/vault-manager";
 import useAppStore from "@/stores/app/useAppStore";
-import { useCommonDriftStore } from "@drift-labs/react";
+import { useCommonDriftStore } from "@velocity-exchange/react";
 import { useEffect, useState } from "react";
-import { Vault } from "@drift-labs/vaults-sdk";
+import { Vault } from "@velocity-exchange/vaults-sdk";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Plus } from "lucide-react";

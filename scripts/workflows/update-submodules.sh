@@ -12,7 +12,7 @@ git add .
 git commit --allow-empty  -m "AUTOMATED: Update submodules"
 echo "Attempting to pusH"
 echo "Using token: ${GH_PAT:0:4}...${GH_PAT:(-4)}"
-# git remote set-url origin https://lunohomachine:${GH_PAT}@github.com/drift-labs/drift-common.git
+# git remote set-url origin https://lunohomachine:${GH_PAT}@github.com/velocity-exchange/drift-common.git
 git remote -v
 git config --unset-all http.https://github.com/.extraheader
 git push --set-upstream origin "$TARGET_BRANCH"

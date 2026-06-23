@@ -1,6 +1,6 @@
 import { produce } from "immer";
 import { create } from "zustand";
-import { VaultClient } from "@drift-labs/vaults-sdk";
+import { VaultClient } from "@velocity-exchange/vaults-sdk";
 import { VaultStats } from "@/types/vaults";
 
 export interface AppStoreState {

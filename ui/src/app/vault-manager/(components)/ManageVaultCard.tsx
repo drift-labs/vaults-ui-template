@@ -1,7 +1,7 @@
-import { decodeName, Vault } from "@drift-labs/vaults-sdk";
+import { decodeName, Vault } from "@velocity-exchange/vaults-sdk";
 import { MarketIcon } from "@/components/MarketIcon";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
-import { BigNum } from "@drift-labs/sdk";
+import { BigNum } from "@velocity-exchange/sdk";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PAGES } from "@/constants/pages";

@@ -4,7 +4,7 @@ import {
   Vault,
   VAULT_SHARES_PRECISION_EXP,
   VaultClient,
-} from "@drift-labs/vaults-sdk";
+} from "@velocity-exchange/vaults-sdk";
 import { MarketId, UIMarket } from "@drift/common";
 import {
   BigNum,
@@ -19,7 +19,7 @@ import {
   UserAccount,
   UserStatsAccount,
   ZERO,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { ApyReturnsLookup, VaultStats } from "@/types/vaults";
 import { useEffect, useMemo, useState } from "react";
 import { DEFAULT_OFF_CHAIN_STATS, DEFAULT_PERIOD_APY } from "@/constants/misc";
@@ -31,7 +31,7 @@ import {
   useCommonDriftStore,
   useDriftClientIsReady,
   useOraclePriceStore,
-} from "@drift-labs/react";
+} from "@velocity-exchange/react";
 import { VAULTS } from "@/constants/vaults";
 import useAppStore, { AppStoreState } from "@/stores/app/useAppStore";
 

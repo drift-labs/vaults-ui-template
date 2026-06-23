@@ -10,7 +10,7 @@ import { VaultDepositWithdrawForm } from "../vaults/(components)/VaultDepositWit
 import { useVault } from "@/hooks/useVault";
 import { getUiVaultConfig } from "@/lib/utils";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
-import { decodeName } from "@drift-labs/vaults-sdk";
+import { decodeName } from "@velocity-exchange/vaults-sdk";
 
 export default function VaultInputPage() {
   const [vaultAddress, setVaultAddress] = useState("");

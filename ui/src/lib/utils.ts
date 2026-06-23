@@ -3,7 +3,7 @@ import { SerializedVaultSnapshot } from "@/db/schema";
 import { PublicKey } from "@solana/web3.js";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { BN, PERCENTAGE_PRECISION, ZERO } from "@drift-labs/sdk";
+import { BN, PERCENTAGE_PRECISION, ZERO } from "@velocity-exchange/sdk";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

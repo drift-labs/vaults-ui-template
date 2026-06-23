@@ -1,4 +1,4 @@
-import { useWallet } from "@drift-labs/react";
+import { useWallet } from "@velocity-exchange/react";
 import { Wallet } from "@solana/wallet-adapter-react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";

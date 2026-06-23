@@ -1,5 +1,5 @@
-import { AppSetupProps } from "@drift-labs/react";
-import { DriftEnv, Wallet, initialize } from "@drift-labs/sdk";
+import { AppSetupProps } from "@velocity-exchange/react";
+import { DriftEnv, Wallet, initialize } from "@velocity-exchange/sdk";
 import {
   Config as CommonConfig,
   EnvironmentConstants,

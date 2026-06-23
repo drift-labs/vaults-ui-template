@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import { getDriftVaultProgram, VaultClient } from "@drift-labs/vaults-sdk";
+import { getDriftVaultProgram, VaultClient } from "@velocity-exchange/vaults-sdk";
 import { COMMON_UI_UTILS } from "@drift/common";
-import { useCommonDriftStore, useDriftClientIsReady } from "@drift-labs/react";
+import { useCommonDriftStore, useDriftClientIsReady } from "@velocity-exchange/react";
 import useAppStore from "@/stores/app/useAppStore";
 
 export const useSyncVaultClient = () => {

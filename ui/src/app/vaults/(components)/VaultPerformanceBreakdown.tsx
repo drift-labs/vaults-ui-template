@@ -5,10 +5,10 @@ import { GraphType, Period } from "./VaultGraphs";
 import { PerformanceBreakdownStat } from "./PerformanceBreakdownStat";
 import { VaultHistoryGraph } from "./VaultHistoryGraph";
 import { UIMarket } from "@drift/common";
-import { BigNum, PublicKey, QUOTE_PRECISION_EXP } from "@drift-labs/sdk";
+import { BigNum, PublicKey, QUOTE_PRECISION_EXP } from "@velocity-exchange/sdk";
 import useAppStore from "@/stores/app/useAppStore";
 import { getUiVaultConfig } from "@/lib/utils";
-import { Typo } from "@drift-labs/react";
+import { Typo } from "@velocity-exchange/react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const PerformanceBreakdownStats = (props: {

@@ -16,7 +16,7 @@ import {
   PRICE_PRECISION_EXP,
   SpotMarketConfig,
   ZERO,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import {
   VaultHistoryGraphTooltip,
   GraphType,
@@ -28,10 +28,10 @@ import { getVaultDepositorBalance } from "@/lib/vault";
 import { useVaultDepositorHistory } from "@/hooks/useVaultDepositorHistory";
 import { useVaultSnapshotHistory } from "@/hooks/useVaultSnapshotHistory";
 import { MarketId } from "@drift/common";
-import { useOraclePriceStore } from "@drift-labs/react";
+import { useOraclePriceStore } from "@velocity-exchange/react";
 import useAppStore from "@/stores/app/useAppStore";
 import { getUiVaultConfig } from "@/lib/utils";
-import { Vault, VaultDepositor } from "@drift-labs/vaults-sdk";
+import { Vault, VaultDepositor } from "@velocity-exchange/vaults-sdk";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
 
 export function getYDomain(minY: number, maxY: number) {

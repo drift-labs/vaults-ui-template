@@ -10,10 +10,10 @@ import {
   useCommonDriftStore,
   useDriftClientIsReady,
   useOraclePriceStore,
-} from "@drift-labs/react";
+} from "@velocity-exchange/react";
 import useAppStore from "@/stores/app/useAppStore";
 import { MarketId } from "@drift/common";
-import { MarketType } from "@drift-labs/sdk";
+import { MarketType } from "@velocity-exchange/sdk";
 import { getUiVaultConfig } from "@/lib/utils";
 
 const DEFAULT_APY_RETURN_STAT = {};

@@ -6,8 +6,8 @@ import {
   PublicKey,
   QUOTE_PRECISION_EXP,
   SpotMarkets,
-} from "@drift-labs/sdk";
-import { VaultAccount } from "@drift-labs/vaults-sdk";
+} from "@velocity-exchange/sdk";
+import { VaultAccount } from "@velocity-exchange/vaults-sdk";
 import dayjs from "dayjs";
 import { NextRequest, NextResponse } from "next/server";
 import { VAULTS, UiVaultConfig } from "@/constants/vaults";

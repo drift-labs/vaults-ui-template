@@ -1,5 +1,5 @@
 import { MarketIcon } from "@/components/MarketIcon";
-import { Typo } from "@drift-labs/react";
+import { Typo } from "@velocity-exchange/react";
 
 export type VaultStatProps = {
   label: string;

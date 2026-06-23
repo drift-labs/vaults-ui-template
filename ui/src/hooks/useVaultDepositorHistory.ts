@@ -1,6 +1,6 @@
 import { SerializedVaultDepositorRecord } from "@/db/schema";
 import { GET_API_ROUTE } from "@/constants/api";
-import { useCommonDriftStore } from "@drift-labs/react";
+import { useCommonDriftStore } from "@velocity-exchange/react";
 import { useQuery } from "@tanstack/react-query";
 
 const DEFAULT_VAULT_DEPOSITOR_HISTORY: SerializedVaultDepositorRecord[] = [];

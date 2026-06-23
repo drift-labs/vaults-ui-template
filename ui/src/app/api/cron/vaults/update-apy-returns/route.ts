@@ -10,10 +10,10 @@ import {
   PRICE_PRECISION_EXP,
   PublicKey,
   QUOTE_PRECISION_EXP,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { VAULTS, UiVaultConfig } from "@/constants/vaults";
 import { NextRequest, NextResponse } from "next/server";
-import { Vault, VAULT_SHARES_PRECISION_EXP } from "@drift-labs/vaults-sdk";
+import { Vault, VAULT_SHARES_PRECISION_EXP } from "@velocity-exchange/vaults-sdk";
 import { getOraclePrice, setupClients } from "@/lib/api";
 import { REDIS_KEYS } from "@/constants/redis";
 import { kv } from "@vercel/kv";

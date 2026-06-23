@@ -1,5 +1,5 @@
-import { useCommonDriftStore } from "@drift-labs/react";
-import { PublicKey } from "@drift-labs/sdk";
+import { useCommonDriftStore } from "@velocity-exchange/react";
+import { PublicKey } from "@velocity-exchange/sdk";
 import { useEffect, useRef, useState } from "react";
 
 export default function useSPLTokenBalance(

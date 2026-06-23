@@ -1,6 +1,6 @@
 [submodule "drift-common"]
 	path = drift-common
-	url = https://github.com/drift-labs/drift-common.git
+	url = https://github.com/velocity-exchange/drift-common.git
 [submodule "drift-vaults"]
 	path = drift-vaults
-	url = https://github.com/drift-labs/drift-vaults.git
+	url = https://github.com/velocity-exchange/drift-vaults.git

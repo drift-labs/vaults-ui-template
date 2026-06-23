@@ -20,10 +20,10 @@ const nextConfig = {
   },
   turbopack: {
     resolveAlias: {
-      "@drift-labs/sdk": "../drift-common/protocol/sdk",
-      "@drift-labs/icons": "../drift-common/icons/dist/",
+      "@velocity-exchange/sdk": "../drift-common/protocol/sdk",
+      "@velocity-exchange/icons": "../drift-common/icons/dist/",
       "@drift/common": "../drift-common/common-ts/lib/index.js",
-      "@drift-labs/react": "../drift-common/react/lib/index.js",
+      "@velocity-exchange/react": "../drift-common/react/lib/index.js",
       react: "./node_modules/@types/react",
       fs: { browser: "./node-browser-compatibility.js" },
       net: { browser: "./node-browser-compatibility.js" },

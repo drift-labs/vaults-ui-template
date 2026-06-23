@@ -10,7 +10,7 @@ A fullstack template for vaults - includes a NextJS UI supported by a NextJS + V
   - View vault history
   - View vault depositor history
 
-**It is still highly recommended to familiarize yourself with the Drift Vaults SDK here: https://github.com/drift-labs/drift-vaults**
+**It is still highly recommended to familiarize yourself with the Drift Vaults SDK here: https://github.com/velocity-exchange/drift-vaults**
 
 ### High-level Code Structure
 

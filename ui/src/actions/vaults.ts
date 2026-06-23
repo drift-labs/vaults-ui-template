@@ -6,8 +6,8 @@ import {
   VaultDepositor,
   VAULT_PROGRAM_ID,
   WithdrawUnit,
-} from "@drift-labs/vaults-sdk";
-import { BN, DriftClient } from "@drift-labs/sdk";
+} from "@velocity-exchange/vaults-sdk";
+import { BN, DriftClient } from "@velocity-exchange/sdk";
 import { PublicKey, TransactionSignature } from "@solana/web3.js";
 
 export const depositVault = async (

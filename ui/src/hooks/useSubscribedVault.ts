@@ -3,10 +3,10 @@ import {
   Vault,
   VaultAccount,
   getDriftVaultProgram,
-} from "@drift-labs/vaults-sdk";
-import { useCommonDriftStore } from "@drift-labs/react";
+} from "@velocity-exchange/vaults-sdk";
+import { useCommonDriftStore } from "@velocity-exchange/react";
 import { COMMON_UI_UTILS } from "@drift/common";
-import { PublicKey, BulkAccountLoader } from "@drift-labs/sdk";
+import { PublicKey, BulkAccountLoader } from "@velocity-exchange/sdk";
 import { Connection } from "@solana/web3.js";
 
 /**

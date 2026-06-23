@@ -42,7 +42,7 @@ cd ${base_directory}
 build "../drift-common/react"  "" ""
 cd ${base_directory}
 
-build "../drift-vaults/ts/sdk" "" "bun add @drift-labs/sdk"
+build "../drift-vaults/ts/sdk" "" "bun add @velocity-exchange/sdk"
 cd ${base_directory}
 
 build "." "build" ""

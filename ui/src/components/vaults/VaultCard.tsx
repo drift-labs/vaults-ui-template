@@ -1,6 +1,6 @@
 import { MarketIcon } from "../MarketIcon";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
-import { PublicKey } from "@drift-labs/sdk";
+import { PublicKey } from "@velocity-exchange/sdk";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { PAGES } from "@/constants/pages";

@@ -1,9 +1,9 @@
 import { VaultDepositorStats } from "./VaultDepositorStats";
-import { SpotMarketConfig } from "@drift-labs/sdk";
+import { SpotMarketConfig } from "@velocity-exchange/sdk";
 import { VaultDepositorPerformanceBreakdown } from "./VaultDepositorPerformanceBreakdown";
 import { getUiVaultConfig } from "@/lib/utils";
 import { NotionalGrowthStrategyAlert } from "./NotionalGrowthStrategyAlert";
-import { Vault, VaultDepositor } from "@drift-labs/vaults-sdk";
+import { Vault, VaultDepositor } from "@velocity-exchange/vaults-sdk";
 
 export const UserPerformance = (props: {
   depositAssetConfig: SpotMarketConfig;

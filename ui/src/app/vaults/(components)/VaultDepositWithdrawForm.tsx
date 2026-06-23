@@ -7,8 +7,8 @@ import {
   PERCENTAGE_PRECISION_EXP,
   BN,
   ZERO,
-} from "@drift-labs/sdk";
-import { Vault, VaultDepositor } from "@drift-labs/vaults-sdk";
+} from "@velocity-exchange/sdk";
+import { Vault, VaultDepositor } from "@velocity-exchange/vaults-sdk";
 import {
   getWithdrawalState,
   redeemPeriodToString,
@@ -18,7 +18,7 @@ import { Alert } from "@/components/ui/alert";
 import dayjs from "dayjs";
 import { getVaultDepositorBalance } from "@/lib/vault";
 import { MarketIcon } from "@/components/MarketIcon";
-import { Typo, useCommonDriftStore, useWallet } from "@drift-labs/react";
+import { Typo, useCommonDriftStore, useWallet } from "@velocity-exchange/react";
 import { Button } from "@/components/ui/button";
 import { UiVaultConfig } from "@/constants/vaults";
 import useAppStore from "@/stores/app/useAppStore";

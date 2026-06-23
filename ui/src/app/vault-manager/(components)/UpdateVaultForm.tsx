@@ -7,10 +7,10 @@ import {
   updateVaultSchema,
   type UpdateVaultSchema,
 } from "./VaultParamsFormFields";
-import { Vault } from "@drift-labs/vaults-sdk";
+import { Vault } from "@velocity-exchange/vaults-sdk";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
 import useAppStore from "@/stores/app/useAppStore";
-import { BN, PERCENTAGE_PRECISION, BigNum } from "@drift-labs/sdk";
+import { BN, PERCENTAGE_PRECISION, BigNum } from "@velocity-exchange/sdk";
 import { toast } from "react-hot-toast";
 
 type UpdateVaultFormProps = {

@@ -4,10 +4,10 @@ import {
   PERCENTAGE_PRECISION,
   PERCENTAGE_PRECISION_EXP,
   SpotMarketConfig,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { PerformanceBreakdownStat } from "./PerformanceBreakdownStat";
 import { GraphType, Period } from "./VaultGraphs";
-import { Typo, useCommonDriftStore } from "@drift-labs/react";
+import { Typo, useCommonDriftStore } from "@velocity-exchange/react";
 import { useState } from "react";
 import { VaultDepositorHistoryGraph } from "./VaultDepositorHistoryGraph";
 import { useVaultSnapshotHistory } from "@/hooks/useVaultSnapshotHistory";
@@ -16,7 +16,7 @@ import useAppStore from "@/stores/app/useAppStore";
 import { ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ToggleGroup } from "@/components/ui/toggle-group";
 import { getMaxDailyDrawdownFromHistory, getUiVaultConfig } from "@/lib/utils";
-import { Vault, VaultDepositor } from "@drift-labs/vaults-sdk";
+import { Vault, VaultDepositor } from "@velocity-exchange/vaults-sdk";
 
 const HUNDRED = new BN(100);
 

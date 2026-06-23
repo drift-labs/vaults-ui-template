@@ -1,4 +1,4 @@
-import { useDisableScroll } from "@drift-labs/react";
+import { useDisableScroll } from "@velocity-exchange/react";
 import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 

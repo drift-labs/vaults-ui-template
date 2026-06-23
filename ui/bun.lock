@@ -2,16 +2,16 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "@drift-labs/dashboard",
+      "name": "@velocity-exchange/dashboard",
       "dependencies": {
         "@auth/dynamodb-adapter": "^2.4.1",
         "@aws-sdk/client-dynamodb": "^3.614.0",
         "@aws-sdk/client-s3": "^3.705.0",
         "@aws-sdk/lib-dynamodb": "^3.614.0",
         "@aws-sdk/s3-request-presigner": "^3.705.0",
-        "@drift-labs/icons": "file:../drift-common/icons",
-        "@drift-labs/react": "file:../drift-common/react",
-        "@drift-labs/vaults-sdk": "file:../drift-vaults/ts/sdk",
+        "@velocity-exchange/icons": "file:../drift-common/icons",
+        "@velocity-exchange/react": "file:../drift-common/react",
+        "@velocity-exchange/vaults-sdk": "file:../drift-vaults/ts/sdk",
         "@drift/common": "file:../drift-common/common-ts",
         "@hookform/resolvers": "^3.10.0",
         "@radix-ui/react-checkbox": "^1.1.1",
@@ -1508,8 +1508,8 @@
       "sha512-hrlQOIi7hAfzsMqlGSFyVucrx38O+j6wiGOf//H2ecvIEqYN4ADBSS2iLMh5UFyDunCNniUIPk/q3riFv45xRA==",
     ],
 
-    "@drift-labs/icons": [
-      "@drift-labs/icons@file:../drift-common/icons",
+    "@velocity-exchange/icons": [
+      "@velocity-exchange/icons@file:../drift-common/icons",
       {
         "dependencies": { "react": "19.0.0-rc-02c0e824-20241028" },
         "devDependencies": {
@@ -1537,11 +1537,11 @@
       },
     ],
 
-    "@drift-labs/react": [
-      "@drift-labs/react@file:../drift-common/react",
+    "@velocity-exchange/react": [
+      "@velocity-exchange/react@file:../drift-common/react",
       {
         "dependencies": {
-          "@drift-labs/icons": "file:../icons",
+          "@velocity-exchange/icons": "file:../icons",
           "@drift/common": "file:../common-ts",
           "@floating-ui/react": "^0.27.9",
           "@solana/wallet-adapter-base": "0.9.23",
@@ -1569,7 +1569,7 @@
           "typescript": "5.1.6",
         },
         "peerDependencies": {
-          "@drift-labs/sdk": "2.32.1-beta.12",
+          "@velocity-exchange/sdk": "2.32.1-beta.12",
           "@solana/spl-token": "0.3.8",
           "@solana/web3.js": "1.92.3",
           "react": "19.0.0-rc-02c0e824-20241028",
@@ -1578,8 +1578,8 @@
       },
     ],
 
-    "@drift-labs/sdk": [
-      "@drift-labs/sdk@2.32.1-beta.12",
+    "@velocity-exchange/sdk": [
+      "@velocity-exchange/sdk@2.32.1-beta.12",
       "",
       {
         "dependencies": {
@@ -1596,12 +1596,12 @@
       "sha512-kIYMRg0LHJIrmd64wY9wxznK2/HNoSQ38/vGLX2gVDIAKxkza2+S93Aa9VFyRq6Ucmi65Bx67I9NnPZE6LDLyA==",
     ],
 
-    "@drift-labs/vaults-sdk": [
-      "@drift-labs/vaults-sdk@file:../drift-vaults/ts/sdk",
+    "@velocity-exchange/vaults-sdk": [
+      "@velocity-exchange/vaults-sdk@file:../drift-vaults/ts/sdk",
       {
         "dependencies": {
           "@coral-xyz/anchor": "0.29.0",
-          "@drift-labs/sdk": "2.119.0-beta.1",
+          "@velocity-exchange/sdk": "2.119.0-beta.1",
           "@metaplex-foundation/js": "0.20.1",
           "@solana/web3.js": "1.92.3",
           "commander": "11.1.0",
@@ -1625,7 +1625,7 @@
       "@drift/common@file:../drift-common/common-ts",
       {
         "dependencies": {
-          "@drift-labs/sdk": "file:../protocol/sdk",
+          "@velocity-exchange/sdk": "file:../protocol/sdk",
           "@jest/globals": "29.3.1",
           "@slack/web-api": "6.4.0",
           "@solana/spl-token": "0.3.8",
@@ -21022,22 +21022,22 @@
       "sha512-4AOeU+P5UuE/4nOUkmcQdW5y7i9ndt1cQd/3iUe+LTz3RxESf/W/5lg4B74HbDMMv8PHnPnGCQFH45kBcrQYoQ==",
     ],
 
-    "@drift-labs/icons/@types/react": [
+    "@velocity-exchange/icons/@types/react": [
       "types-react@19.0.0-rc.1",
       "",
       { "dependencies": { "csstype": "^3.0.2" } },
       "sha512-RshndUfqTW6K3STLPis8BtAYCGOkMbtvYsi90gmVNDZBXUyUc5juf2PE9LfS/JmOlUIRO8cWTS/1MTnmhjDqyQ==",
     ],
 
-    "@drift-labs/icons/react": [
+    "@velocity-exchange/icons/react": [
       "react@19.0.0-rc-02c0e824-20241028",
       "",
       {},
       "sha512-GbZ7hpPHQMiEu53BqEaPQVM/4GG4hARo+mqEEnx4rYporDvNvUjutiAFxYFSbu6sgHwcr7LeFv8htEOwALVA2A==",
     ],
 
-    "@drift-labs/react/@drift-labs/icons": [
-      "@drift-labs/icons@file:../drift-common/icons",
+    "@velocity-exchange/react/@velocity-exchange/icons": [
+      "@velocity-exchange/icons@file:../drift-common/icons",
       {
         "dependencies": { "react": "19.0.0-rc-02c0e824-20241028" },
         "devDependencies": {
@@ -21065,11 +21065,11 @@
       },
     ],
 
-    "@drift-labs/react/@drift/common": [
+    "@velocity-exchange/react/@drift/common": [
       "@drift/common@file:../drift-common/common-ts",
       {
         "dependencies": {
-          "@drift-labs/sdk": "file:../protocol/sdk",
+          "@velocity-exchange/sdk": "file:../protocol/sdk",
           "@jest/globals": "29.3.1",
           "@slack/web-api": "6.4.0",
           "@solana/spl-token": "0.3.8",
@@ -21098,7 +21098,7 @@
       },
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react": [
       "@solana/wallet-adapter-react@0.15.35",
       "",
       {
@@ -21112,7 +21112,7 @@
       "sha512-i4hc/gNLTYNLMEt2LS+4lrrc0QAwa5SU2PtYMnZ2A3rsoKF5m1bv1h6cjLj2KBry4/zRGEBoqkiMOC5zHkLnRQ==",
     ],
 
-    "@drift-labs/react/@solana/web3.js": [
+    "@velocity-exchange/react/@solana/web3.js": [
       "@solana/web3.js@1.92.3",
       "",
       {
@@ -21137,14 +21137,14 @@
       "sha512-NVBWvb9zdJIAx6X+caXaIICCEQfQaQ8ygykCjJW4u2z/sIKcvPj3ZIIllnx0MWMc3IxGq15ozGYDOQIMbwUcHw==",
     ],
 
-    "@drift-labs/react/@types/react": [
+    "@velocity-exchange/react/@types/react": [
       "types-react@19.0.0-rc.1",
       "",
       { "dependencies": { "csstype": "^3.0.2" } },
       "sha512-RshndUfqTW6K3STLPis8BtAYCGOkMbtvYsi90gmVNDZBXUyUc5juf2PE9LfS/JmOlUIRO8cWTS/1MTnmhjDqyQ==",
     ],
 
-    "@drift-labs/react/eslint": [
+    "@velocity-exchange/react/eslint": [
       "eslint@8.43.0",
       "",
       {
@@ -21194,21 +21194,21 @@
       "sha512-aaCpf2JqqKesMFGgmRPessmVKjcGXqdlAYLLC3THM8t5nBRZRQ+st5WM/hoJXkdioEXLLbXgclUpM0TXo5HX5Q==",
     ],
 
-    "@drift-labs/react/immer": [
+    "@velocity-exchange/react/immer": [
       "immer@10.0.2",
       "",
       {},
       "sha512-Rx3CqeqQ19sxUtYV9CU911Vhy8/721wRFnJv3REVGWUmoAcIwzifTsdmJte/MV+0/XpM35LZdQMBGkRIoLPwQA==",
     ],
 
-    "@drift-labs/react/react": [
+    "@velocity-exchange/react/react": [
       "react@19.0.0-rc-02c0e824-20241028",
       "",
       {},
       "sha512-GbZ7hpPHQMiEu53BqEaPQVM/4GG4hARo+mqEEnx4rYporDvNvUjutiAFxYFSbu6sgHwcr7LeFv8htEOwALVA2A==",
     ],
 
-    "@drift-labs/react/react-dom": [
+    "@velocity-exchange/react/react-dom": [
       "react-dom@19.0.0-rc-02c0e824-20241028",
       "",
       {
@@ -21218,14 +21218,14 @@
       "sha512-LrZf3DfHL6Fs07wwlUCHrzFTCMM19yA99MvJpfLokN4I2nBAZvREGZjZAn8VPiSfN72+i9j1eL4wB8gC695F3Q==",
     ],
 
-    "@drift-labs/react/tailwind-merge": [
+    "@velocity-exchange/react/tailwind-merge": [
       "tailwind-merge@2.5.4",
       "",
       {},
       "sha512-0q8cfZHMu9nuYP/b5Shb7Y7Sh1B7Nnl5GqNr1U+n2p6+mybvRtayrQ+0042Z5byvTA8ihjlP8Odo8/VnHbZu4Q==",
     ],
 
-    "@drift-labs/react/zustand": [
+    "@velocity-exchange/react/zustand": [
       "zustand@4.3.8",
       "",
       {
@@ -21236,7 +21236,7 @@
       "sha512-4h28KCkHg5ii/wcFFJ5Fp+k1J3gJoasaIbppdgZFO4BPJnsNxL0mQXBSFgOgAdCdBj35aDTPvdAJReTMntFPGg==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor": [
       "@coral-xyz/anchor@0.26.0",
       "",
       {
@@ -21261,7 +21261,7 @@
       "sha512-PxRl+wu5YyptWiR9F2MBHOLLibm87Z4IMUBPreX+DYBtPM+xggvcPi0KAN7+kIL4IrIhXI8ma5V0MCXxSN1pHg==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js": [
+    "@velocity-exchange/sdk/@solana/web3.js": [
       "@solana/web3.js@1.73.2",
       "",
       {
@@ -21287,15 +21287,15 @@
       "sha512-9WACF8W4Nstj7xiDw3Oom22QmrhBh0VyZyZ7JvvG3gOxLWLlX3hvm5nPVJOGcCE/9fFavBbCUb5A6CIuvMGdoA==",
     ],
 
-    "@drift-labs/sdk/uuid": [
+    "@velocity-exchange/sdk/uuid": [
       "uuid@8.3.2",
       "",
       { "bin": { "uuid": "dist/bin/uuid" } },
       "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk": [
-      "@drift-labs/sdk@2.119.0-beta.1",
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk": [
+      "@velocity-exchange/sdk@2.119.0-beta.1",
       "",
       {
         "dependencies": {
@@ -21328,7 +21328,7 @@
       "sha512-3qLFVDq0vX45reFrCnJijv2M9pTwh0YCHtcOvm661pVf1ELiiWCGFxUrrU5OFi83rkPCvdK54KFYjRn4vHWVKg==",
     ],
 
-    "@drift-labs/vaults-sdk/@solana/web3.js": [
+    "@velocity-exchange/vaults-sdk/@solana/web3.js": [
       "@solana/web3.js@1.92.3",
       "",
       {
@@ -21353,21 +21353,21 @@
       "sha512-NVBWvb9zdJIAx6X+caXaIICCEQfQaQ8ygykCjJW4u2z/sIKcvPj3ZIIllnx0MWMc3IxGq15ozGYDOQIMbwUcHw==",
     ],
 
-    "@drift-labs/vaults-sdk/commander": [
+    "@velocity-exchange/vaults-sdk/commander": [
       "commander@11.1.0",
       "",
       {},
       "sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==",
     ],
 
-    "@drift-labs/vaults-sdk/dotenv": [
+    "@velocity-exchange/vaults-sdk/dotenv": [
       "dotenv@16.4.5",
       "",
       {},
       "sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==",
     ],
 
-    "@drift-labs/vaults-sdk/ts-node": [
+    "@velocity-exchange/vaults-sdk/ts-node": [
       "ts-node@10.9.2",
       "",
       {
@@ -21405,7 +21405,7 @@
       "sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==",
     ],
 
-    "@drift-labs/vaults-sdk/typescript": [
+    "@velocity-exchange/vaults-sdk/typescript": [
       "typescript@5.6.3",
       "",
       { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } },
@@ -26410,7 +26410,7 @@
       "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base": [
       "@solana/wallet-adapter-base@0.9.27",
       "",
       {
@@ -26425,14 +26425,14 @@
       "sha512-kXjeNfNFVs/NE9GPmysBRKQ/nf+foSaq3kfVSeMcO/iVgigyRmB551OjU3WyAolLG/1jeEfKLqF9fKwMCRkUqg==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/react": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/react": [
       "react@18.3.1",
       "",
       { "dependencies": { "loose-envify": "^1.1.0" } },
       "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==",
     ],
 
-    "@drift-labs/react/@solana/web3.js/rpc-websockets": [
+    "@velocity-exchange/react/@solana/web3.js/rpc-websockets": [
       "rpc-websockets@8.0.2",
       "",
       {
@@ -26449,35 +26449,35 @@
       "sha512-QZ8lneJTtIZTf9JBcdUn/im2qDynWRYPKtmF6P9DqtdzqSLebcllYWVQr5aQacAp7LBYPReOW9Ses98dNfO7cA==",
     ],
 
-    "@drift-labs/react/@solana/web3.js/superstruct": [
+    "@velocity-exchange/react/@solana/web3.js/superstruct": [
       "superstruct@1.0.4",
       "",
       {},
       "sha512-7JpaAoX2NGyoFlI9NBh66BQXGONc+uE+MRS5i2iOBKuS4e+ccgMDjATgZldkah+33DakBxDHiss9kvUcGAO8UQ==",
     ],
 
-    "@drift-labs/react/eslint/@eslint/js": [
+    "@velocity-exchange/react/eslint/@eslint/js": [
       "@eslint/js@8.43.0",
       "",
       {},
       "sha512-s2UHCoiXfxMvmfzqoN+vrQ84ahUSYde9qNO1MdxmoEhyHWsfmwOpFlwYV+ePJEVc7gFnATGUi376WowX1N7tFg==",
     ],
 
-    "@drift-labs/react/react-dom/scheduler": [
+    "@velocity-exchange/react/react-dom/scheduler": [
       "scheduler@0.25.0-rc-02c0e824-20241028",
       "",
       {},
       "sha512-GysnKjmMSaWcwsKTLzeJO0IhU3EyIiC0ivJKE6yDNLqt3IMxDByx8b6lSNXRNdN+ULUY0WLLjSPaZ0LuU/GnTg==",
     ],
 
-    "@drift-labs/react/zustand/use-sync-external-store": [
+    "@velocity-exchange/react/zustand/use-sync-external-store": [
       "use-sync-external-store@1.2.0",
       "",
       { "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0" } },
       "sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@coral-xyz/borsh": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@coral-xyz/borsh": [
       "@coral-xyz/borsh@0.26.0",
       "",
       {
@@ -26487,7 +26487,7 @@
       "sha512-uCZ0xus0CszQPHYfWAqKS5swS1UxvePu83oOF+TWpUkedsNlg6p2p4azxZNSSqwXb9uXMFgxhuMBX9r3Xoi0vQ==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@solana/web3.js": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@solana/web3.js": [
       "@solana/web3.js@1.98.2",
       "",
       {
@@ -26512,21 +26512,21 @@
       "sha512-BqVwEG+TaG2yCkBMbD3C4hdpustR4FpuUFRPUmqRZYYlPI9Hg4XMWxHWOWRzHE9Lkc9NDjzXFX7lDXSgzC7R1A==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/superstruct": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/superstruct": [
       "superstruct@0.15.5",
       "",
       {},
       "sha512-4AOeU+P5UuE/4nOUkmcQdW5y7i9ndt1cQd/3iUe+LTz3RxESf/W/5lg4B74HbDMMv8PHnPnGCQFH45kBcrQYoQ==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/buffer": [
+    "@velocity-exchange/sdk/@solana/web3.js/buffer": [
       "buffer@6.0.1",
       "",
       { "dependencies": { "base64-js": "^1.3.1", "ieee754": "^1.2.1" } },
       "sha512-rVAXBwEcEoYtxnHSO5iWyhzV/O1WMtkUYWlfdLS7FjU4PnSJJHEfHXi/uHPI5EwltmOA794gN3bm3/pzuctWjQ==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/jayson": [
+    "@velocity-exchange/sdk/@solana/web3.js/jayson": [
       "jayson@3.7.0",
       "",
       {
@@ -26550,14 +26550,14 @@
       "sha512-tfy39KJMrrXJ+mFcMpxwBvFDetS8LAID93+rycFglIQM4kl3uNR3W4lBLE/FFhsoUCEox5Dt2adVpDm/XtebbQ==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/superstruct": [
+    "@velocity-exchange/sdk/@solana/web3.js/superstruct": [
       "superstruct@0.14.2",
       "",
       {},
       "sha512-nPewA6m9mR3d6k7WkZ8N8zpTWfenFH3q9pA2PkuiZxINr9DKB2+40wEQf0ixn8VaGuJ78AB6iWOtStI+/4FKZQ==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk/@solana/spl-token": [
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk/@solana/spl-token": [
       "@solana/spl-token@0.3.7",
       "",
       {
@@ -26571,21 +26571,21 @@
       "sha512-bKGxWTtIw6VDdCBngjtsGlKGLSmiu/8ghSt/IOYJV24BsymRbgq7r12GToeetpxmPaZYLddKwAz7+EwprLfkfg==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk/nanoid": [
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk/nanoid": [
       "nanoid@3.3.4",
       "",
       { "bin": { "nanoid": "bin/nanoid.cjs" } },
       "sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk/uuid": [
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk/uuid": [
       "uuid@8.3.2",
       "",
       { "bin": { "uuid": "dist/bin/uuid" } },
       "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk/yargs": [
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk/yargs": [
       "yargs@17.7.2",
       "",
       {
@@ -26602,7 +26602,7 @@
       "sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==",
     ],
 
-    "@drift-labs/vaults-sdk/@solana/web3.js/rpc-websockets": [
+    "@velocity-exchange/vaults-sdk/@solana/web3.js/rpc-websockets": [
       "rpc-websockets@8.0.2",
       "",
       {
@@ -26619,21 +26619,21 @@
       "sha512-QZ8lneJTtIZTf9JBcdUn/im2qDynWRYPKtmF6P9DqtdzqSLebcllYWVQr5aQacAp7LBYPReOW9Ses98dNfO7cA==",
     ],
 
-    "@drift-labs/vaults-sdk/@solana/web3.js/superstruct": [
+    "@velocity-exchange/vaults-sdk/@solana/web3.js/superstruct": [
       "superstruct@1.0.4",
       "",
       {},
       "sha512-7JpaAoX2NGyoFlI9NBh66BQXGONc+uE+MRS5i2iOBKuS4e+ccgMDjATgZldkah+33DakBxDHiss9kvUcGAO8UQ==",
     ],
 
-    "@drift-labs/vaults-sdk/ts-node/@cspotcode/source-map-support": [
+    "@velocity-exchange/vaults-sdk/ts-node/@cspotcode/source-map-support": [
       "@cspotcode/source-map-support@0.8.1",
       "",
       { "dependencies": { "@jridgewell/trace-mapping": "0.3.9" } },
       "sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==",
     ],
 
-    "@drift-labs/vaults-sdk/ts-node/arg": [
+    "@velocity-exchange/vaults-sdk/ts-node/arg": [
       "arg@4.1.3",
       "",
       {},
@@ -29026,7 +29026,7 @@
       "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js": [
       "@solana/web3.js@1.98.2",
       "",
       {
@@ -29051,28 +29051,28 @@
       "sha512-BqVwEG+TaG2yCkBMbD3C4hdpustR4FpuUFRPUmqRZYYlPI9Hg4XMWxHWOWRzHE9Lkc9NDjzXFX7lDXSgzC7R1A==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/eventemitter3": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/eventemitter3": [
       "eventemitter3@5.0.1",
       "",
       {},
       "sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==",
     ],
 
-    "@drift-labs/react/@solana/web3.js/rpc-websockets/uuid": [
+    "@velocity-exchange/react/@solana/web3.js/rpc-websockets/uuid": [
       "uuid@8.3.2",
       "",
       { "bin": { "uuid": "dist/bin/uuid" } },
       "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==",
     ],
 
-    "@drift-labs/react/zustand/use-sync-external-store/react": [
+    "@velocity-exchange/react/zustand/use-sync-external-store/react": [
       "react@18.3.1",
       "",
       { "dependencies": { "loose-envify": "^1.1.0" } },
       "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets": [
       "rpc-websockets@9.1.2",
       "",
       {
@@ -29093,35 +29093,35 @@
       "sha512-fvA0JfSqWmJsq0FqLnl51DPRMqPer7hcIqqLwuhgAUOWrLVuJhmNeL+Y4Ds5PdoX/NyUhUWoflL6A7bT93Xfkg==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@solana/web3.js/superstruct": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@solana/web3.js/superstruct": [
       "superstruct@2.0.2",
       "",
       {},
       "sha512-uV+TFRZdXsqXTL2pRvujROjdZQ4RAlBUS5BTh9IGm+jTqQntYThciG/qu57Gs69yjnVUSqdxF9YLmSnpupBW9A==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/jayson/@types/node": [
+    "@velocity-exchange/sdk/@solana/web3.js/jayson/@types/node": [
       "@types/node@12.20.55",
       "",
       {},
       "sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/jayson/commander": [
+    "@velocity-exchange/sdk/@solana/web3.js/jayson/commander": [
       "commander@2.20.3",
       "",
       {},
       "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/jayson/isomorphic-ws": [
+    "@velocity-exchange/sdk/@solana/web3.js/jayson/isomorphic-ws": [
       "isomorphic-ws@4.0.1",
       "",
       { "peerDependencies": { "ws": "*" } },
       "sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==",
     ],
 
-    "@drift-labs/sdk/@solana/web3.js/jayson/ws": [
+    "@velocity-exchange/sdk/@solana/web3.js/jayson/ws": [
       "ws@7.5.10",
       "",
       {
@@ -29134,7 +29134,7 @@
       "sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk/yargs/cliui": [
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk/yargs/cliui": [
       "cliui@8.0.1",
       "",
       {
@@ -29147,21 +29147,21 @@
       "sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==",
     ],
 
-    "@drift-labs/vaults-sdk/@drift-labs/sdk/yargs/yargs-parser": [
+    "@velocity-exchange/vaults-sdk/@velocity-exchange/sdk/yargs/yargs-parser": [
       "yargs-parser@21.1.1",
       "",
       {},
       "sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==",
     ],
 
-    "@drift-labs/vaults-sdk/@solana/web3.js/rpc-websockets/uuid": [
+    "@velocity-exchange/vaults-sdk/@solana/web3.js/rpc-websockets/uuid": [
       "uuid@8.3.2",
       "",
       { "bin": { "uuid": "dist/bin/uuid" } },
       "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==",
     ],
 
-    "@drift-labs/vaults-sdk/ts-node/@cspotcode/source-map-support/@jridgewell/trace-mapping": [
+    "@velocity-exchange/vaults-sdk/ts-node/@cspotcode/source-map-support/@jridgewell/trace-mapping": [
       "@jridgewell/trace-mapping@0.3.9",
       "",
       {
@@ -29905,7 +29905,7 @@
       "sha512-M7uio8Zt++eg3jPj+rHMfCC+IuygQHHCOU+IYsVtik6FWjuYpVt/+MRKcgsAMHh8mMFAwnB+Bs+mTrFiXjMzKg==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets": [
       "rpc-websockets@9.1.2",
       "",
       {
@@ -29926,21 +29926,21 @@
       "sha512-fvA0JfSqWmJsq0FqLnl51DPRMqPer7hcIqqLwuhgAUOWrLVuJhmNeL+Y4Ds5PdoX/NyUhUWoflL6A7bT93Xfkg==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets/@types/uuid": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets/@types/uuid": [
       "@types/uuid@8.3.4",
       "",
       {},
       "sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets/@types/ws": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets/@types/ws": [
       "@types/ws@8.18.1",
       "",
       { "dependencies": { "@types/node": "*" } },
       "sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==",
     ],
 
-    "@drift-labs/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets/eventemitter3": [
+    "@velocity-exchange/sdk/@coral-xyz/anchor/@solana/web3.js/rpc-websockets/eventemitter3": [
       "eventemitter3@5.0.1",
       "",
       {},
@@ -30321,21 +30321,21 @@
       "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets/@types/uuid": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets/@types/uuid": [
       "@types/uuid@8.3.4",
       "",
       {},
       "sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets/@types/ws": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets/@types/ws": [
       "@types/ws@8.18.1",
       "",
       { "dependencies": { "@types/node": "*" } },
       "sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==",
     ],
 
-    "@drift-labs/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets/uuid": [
+    "@velocity-exchange/react/@solana/wallet-adapter-react/@solana/wallet-adapter-base/@solana/web3.js/rpc-websockets/uuid": [
       "uuid@8.3.2",
       "",
       { "bin": { "uuid": "dist/bin/uuid" } },

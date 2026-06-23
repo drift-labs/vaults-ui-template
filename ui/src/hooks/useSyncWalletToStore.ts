@@ -3,8 +3,8 @@ import {
   useCommonDriftActions,
   useCommonDriftStore,
   useWallet,
-} from "@drift-labs/react";
-import { BASE_PRECISION_EXP, BigNum } from "@drift-labs/sdk";
+} from "@velocity-exchange/react";
+import { BASE_PRECISION_EXP, BigNum } from "@velocity-exchange/sdk";
 import { useEffect } from "react";
 
 /**

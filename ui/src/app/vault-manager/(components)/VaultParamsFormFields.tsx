@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
-import { SpotMarketConfig } from "@drift-labs/sdk";
+import { SpotMarketConfig } from "@velocity-exchange/sdk";
 import { twMerge } from "tailwind-merge";
 
 // Base schema without name and spotMarketIndex

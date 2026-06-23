@@ -7,7 +7,7 @@ import {
   LogParser as DriftLogParser,
   BigNum,
   PRICE_PRECISION_EXP,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { db } from "@/db";
 import {
   SerializedVaultDepositorRecord,
@@ -23,7 +23,7 @@ import {
   LogParser as VaultsLogParser,
   VaultDepositorRecord,
   VaultDepositorV1Record,
-} from "@drift-labs/vaults-sdk";
+} from "@velocity-exchange/vaults-sdk";
 import { ENUM_UTILS } from "@drift/common";
 import {
   getHistoricalPriceFromPyth,

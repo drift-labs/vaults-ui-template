@@ -10,7 +10,7 @@ import {
 import type { MouseEvent as ReactMouseEvent } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { Close } from "@drift-labs/icons";
+import { Close } from "@velocity-exchange/icons";
 import ModalPortal from "@/components/modals/ModalPortal";
 
 const TRANSITION_DELAY = 100;

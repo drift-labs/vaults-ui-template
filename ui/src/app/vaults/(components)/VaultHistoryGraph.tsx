@@ -16,7 +16,7 @@ import {
   QUOTE_PRECISION_EXP,
   SpotMarketConfig,
   ZERO,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { UIMarket } from "@drift/common";
 import {
   GraphType,
@@ -27,7 +27,7 @@ import {
 } from "./VaultGraphs";
 import { useVaultSnapshotHistory } from "@/hooks/useVaultSnapshotHistory";
 import { useEffect, useState } from "react";
-import { VAULT_SHARES_PRECISION_EXP } from "@drift-labs/vaults-sdk";
+import { VAULT_SHARES_PRECISION_EXP } from "@velocity-exchange/vaults-sdk";
 import { SPOT_MARKETS_LOOKUP } from "@/constants/environment";
 import { getUiVaultConfig } from "@/lib/utils";
 import useAppStore from "@/stores/app/useAppStore";

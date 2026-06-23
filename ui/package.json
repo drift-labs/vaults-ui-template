@@ -1,5 +1,5 @@
 {
-  "name": "@drift-labs/vaults-ui-template",
+  "name": "@velocity-exchange/vaults-ui-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -32,9 +32,9 @@
     "@aws-sdk/client-s3": "^3.705.0",
     "@aws-sdk/lib-dynamodb": "^3.614.0",
     "@aws-sdk/s3-request-presigner": "^3.705.0",
-    "@drift-labs/icons": "file:../drift-common/icons",
-    "@drift-labs/react": "file:../drift-common/react",
-    "@drift-labs/vaults-sdk": "file:../drift-vaults/ts/sdk",
+    "@velocity-exchange/icons": "file:../drift-common/icons",
+    "@velocity-exchange/react": "file:../drift-common/react",
+    "@velocity-exchange/vaults-sdk": "file:../drift-vaults/ts/sdk",
     "@drift/common": "file:../drift-common/common-ts",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-checkbox": "^1.1.1",

@@ -11,10 +11,10 @@ import {
   PRICE_PRECISION_EXP,
   PublicKey,
   SpotMarkets,
-} from "@drift-labs/sdk";
+} from "@velocity-exchange/sdk";
 import { Connection } from "@solana/web3.js";
 import { COMMON_UI_UTILS, USDC_SPOT_MARKET_INDEX } from "@drift/common";
-import { getVaultClient } from "@drift-labs/vaults-sdk";
+import { getVaultClient } from "@velocity-exchange/vaults-sdk";
 import axios, { AxiosResponse } from "axios";
 
 const CLUSTER = "mainnet-beta";

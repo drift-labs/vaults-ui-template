@@ -9,7 +9,7 @@ import {
   useCommonDriftStore,
   useHandleBadRpc,
   useSyncOraclePriceStore,
-} from "@drift-labs/react";
+} from "@velocity-exchange/react";
 import { WalletContext, WalletProvider } from "@solana/wallet-adapter-react";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

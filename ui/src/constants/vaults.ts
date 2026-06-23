@@ -1,4 +1,4 @@
-import { SpotMarketConfig } from "@drift-labs/sdk";
+import { SpotMarketConfig } from "@velocity-exchange/sdk";
 import { SPOT_MARKETS_LOOKUP } from "./environment";
 
 // these configs are hardcoded instead of fetching from the VaultAccount to save on RPC calls, since they are fixed on vault inception

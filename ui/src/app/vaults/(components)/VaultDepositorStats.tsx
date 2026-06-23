@@ -3,7 +3,7 @@ import {
   getVaultDepositorBalance,
   getVaultDepositorNotionalNetDeposits,
 } from "@/lib/vault";
-import { BigNum, QUOTE_PRECISION_EXP, SpotMarketConfig } from "@drift-labs/sdk";
+import { BigNum, QUOTE_PRECISION_EXP, SpotMarketConfig } from "@velocity-exchange/sdk";
 import { MarketId } from "@drift/common";
 import { MarketIcon } from "@/components/MarketIcon";
 import { useVaultDepositorHistory } from "@/hooks/useVaultDepositorHistory";
@@ -11,14 +11,14 @@ import {
   calcModifiedDietz,
   Vault,
   VaultDepositor,
-} from "@drift-labs/vaults-sdk";
+} from "@velocity-exchange/vaults-sdk";
 import { getUiVaultConfig } from "@/lib/utils";
 import useAppStore from "@/stores/app/useAppStore";
 import {
   Typo,
   useIsMobileScreenSize,
   useOraclePriceStore,
-} from "@drift-labs/react";
+} from "@velocity-exchange/react";
 
 export const VaultDepositorStats = (props: {
   depositAssetConfig: SpotMarketConfig;

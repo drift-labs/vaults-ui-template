@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { TooltipProps } from "recharts";
-import { BigNum, SpotMarketConfig } from "@drift-labs/sdk";
+import { BigNum, SpotMarketConfig } from "@velocity-exchange/sdk";
 import { twMerge } from "tailwind-merge";
 import { MarketIcon } from "@/components/MarketIcon";
-import { Typo } from "@drift-labs/react";
+import { Typo } from "@velocity-exchange/react";
 
 export type GraphType = "pnl" | "balance" | "sharePrice";
 export type Period = "7d" | "30d" | "90d";
